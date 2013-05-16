@@ -17,7 +17,7 @@ profiler.jar: $(SRCS) manifest.txt NetLogoHeadless.jar scala-library-2.10.1.jar
 	jar cmf manifest.txt profiler.jar -C classes .
 
 NetLogoHeadless.jar:
-	curl -f -s -S 'http://ccl.northwestern.edu/devel/NetLogoHeadless-de4980d4.jar' -o NetLogoHeadless.jar
+	curl -f -s -S 'http://ccl.northwestern.edu/devel/NetLogoHeadless-e2bba9de.jar' -o NetLogoHeadless.jar
 
 scala-library-2.10.1.jar:
 	curl -f -s -S 'http://search.maven.org/remotecontent?filepath=org/scala-lang/scala-library/2.10.1/scala-library-2.10.1.jar' -o scala-library-2.10.1.jar
