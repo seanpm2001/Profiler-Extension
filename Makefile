@@ -21,7 +21,7 @@ SRCS=$(wildcard src/*.java)
 
 profiler.jar: $(SRCS) manifest.txt NetLogoHeadless.jar
 	mkdir -p classes
-	$(JAVA_HOME)/bin/javac -g -Werror -encoding us-ascii -source 1.7 -target 1.7 -classpath NetLogoHeadless.jar$(COLON)$(SCALA_JAR) -d classes $(SRCS)
+	$(JAVA_HOME)/bin/javac -g -Werror -encoding us-ascii -source 1.7 -target 1.7 -classpath "NetLogoHeadless.jar$(COLON)$(SCALA_JAR)" -d classes $(SRCS)
 	jar cmf manifest.txt profiler.jar -C classes .
 
 NetLogoHeadless.jar:
