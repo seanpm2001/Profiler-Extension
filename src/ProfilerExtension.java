@@ -28,7 +28,7 @@ public class ProfilerExtension extends org.nlogo.api.DefaultClassManager {
   public void runOnce(org.nlogo.api.ExtensionManager em)
       throws org.nlogo.api.ExtensionException {
     Tracer tracer = new QuickTracer();
-    ((org.nlogo.workspace.ExtensionManager) em).workspace().setProfilingTracer(tracer);
+    em.addInstrumentation("tracer", tracer, Tracer.class);
     // we disable it once it is installed, so that
     // we don't start collecting profiling data until
     // ProfilerStart is called.  -- CLB
@@ -36,7 +36,7 @@ public class ProfilerExtension extends org.nlogo.api.DefaultClassManager {
   }
 
   public void unload(org.nlogo.api.ExtensionManager em) {
-    ((org.nlogo.workspace.ExtensionManager) em).workspace().setProfilingTracer(null);
+    em.removeInstrumentation("tracer", Tracer.class);
   }
 
   public static class ProfilerStart implements Command {
